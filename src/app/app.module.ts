@@ -14,6 +14,8 @@ import { LogingrupoPage } from '../pages/logingrupo/logingrupo';
 import { CadastrogrupoPage } from '../pages/cadastrogrupo/cadastrogrupo';
 import { PerfiladvogadoPage } from '../pages/perfiladvogado/perfiladvogado';
 import { AdvogadoProvider } from '../providers/advogado/advogado';
+import { AssociadosProvider } from '../providers/associados/associados';
+import { PerfilgrupoPage } from '../pages/perfilgrupo/perfilgrupo';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { AdvogadoProvider } from '../providers/advogado/advogado';
     LogingrupoPage,
     CadastroPage,
     CadastrogrupoPage,
-    PerfiladvogadoPage
+    PerfiladvogadoPage,
+    PerfilgrupoPage
   ],
   imports: [
     BrowserModule,
@@ -40,13 +43,15 @@ import { AdvogadoProvider } from '../providers/advogado/advogado';
     LogingrupoPage,
     CadastroPage,
     CadastrogrupoPage,
-    PerfiladvogadoPage
+    PerfiladvogadoPage,
+    PerfilgrupoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AdvogadoProvider
+    AdvogadoProvider,
+    AssociadosProvider
   ]
 })
 export class AppModule {}

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AdvogadoProvider } from '../../providers/advogado/advogado';
 import { Advogado } from '../../providers/advogado/adv';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-perfiladvogado',
@@ -9,7 +10,7 @@ import { Advogado } from '../../providers/advogado/adv';
 })
 export class PerfiladvogadoPage {
   
-  public advogado: any;
+  public advogado: Advogado;
   
   constructor(
     public navCtrl: NavController,
@@ -20,6 +21,6 @@ export class PerfiladvogadoPage {
   }
 
   efetuaAlteracao() {
-
+    this.navCtrl.setRoot(HomePage);
   }
 }

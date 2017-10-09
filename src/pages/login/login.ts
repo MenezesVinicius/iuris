@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { CadastroPage } from '../cadastro/cadastro';
 import { AdvogadoProvider } from '../../providers/advogado/advogado';
@@ -16,6 +16,7 @@ export class LoginPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    public events: Events,
     private advProvider: AdvogadoProvider) {
       this.advogado = new Advogado();
       this.advogado.email = 'vicmen33@hotmail.com';
@@ -24,6 +25,7 @@ export class LoginPage {
 
   efetuaLogin() {
     this.advProvider.logarAdvogado(this.advogado);
+    this.events.publish('tipoLogado', 'advogado'); 
     this.navCtrl.setRoot(HomePage);
   }
 

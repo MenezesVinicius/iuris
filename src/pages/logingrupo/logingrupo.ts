@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { CadastrogrupoPage } from '../cadastrogrupo/cadastrogrupo';
+import { Associados } from '../../providers/associados/grupo';
+import { AssociadosProvider } from '../../providers/associados/associados';
 
 @Component({
   selector: 'page-logingrupo',
@@ -9,18 +11,25 @@ import { CadastrogrupoPage } from '../cadastrogrupo/cadastrogrupo';
 })
 export class LogingrupoPage {
 
-  public email: string = 'vicmen33@hotmal.com';
-  public senha: string = '36425652';
+  public grupo: Associados;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public events: Events,
+    private assProvider: AssociadosProvider) {
+      this.grupo = new Associados();
+      this.grupo.email = 'vicmen33@hotmail.com';
+      this.grupo.senha = '36425652';
   }
 
   efetuaLogin() {
+    this.assProvider.logarGrupo(this.grupo);
+    this.events.publish('tipoLogado', 'grupo'); 
     this.navCtrl.setRoot(HomePage);
   }
 
   gotoCadastro() {
     this.navCtrl.push(CadastrogrupoPage);
   }
-
 }
