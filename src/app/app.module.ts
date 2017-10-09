@@ -18,6 +18,10 @@ import { PerfiladvogadoPage } from '../pages/perfiladvogado/perfiladvogado';
 import { AdvogadoProvider } from '../providers/advogado/advogado';
 import { AssociadosProvider } from '../providers/associados/associados';
 import { PerfilgrupoPage } from '../pages/perfilgrupo/perfilgrupo';
+import { TabsAdvogadoPage } from '../pages/tabs-advogado/tabs-advogado';
+import { AreaAssPage } from '../pages/area-ass/area-ass';
+import { ProcurarAssPage } from '../pages/procurar-ass/procurar-ass';
+import { ListarAssPage } from '../pages/listar-ass/listar-ass';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,12 @@ import { PerfilgrupoPage } from '../pages/perfilgrupo/perfilgrupo';
     CadastroPage,
     CadastrogrupoPage,
     PerfiladvogadoPage,
-    PerfilgrupoPage
+    PerfilgrupoPage,
+    TabsAdvogadoPage,
+    AreaAssPage,
+    ProcurarAssPage,
+    ListarAssPage
+
   ],
   imports: [
     BrowserModule,
@@ -46,7 +55,12 @@ import { PerfilgrupoPage } from '../pages/perfilgrupo/perfilgrupo';
     CadastroPage,
     CadastrogrupoPage,
     PerfiladvogadoPage,
-    PerfilgrupoPage
+    PerfilgrupoPage,
+    TabsAdvogadoPage,
+    AreaAssPage,
+    ProcurarAssPage,
+    ListarAssPage
+
   ],
   providers: [
     StatusBar,
