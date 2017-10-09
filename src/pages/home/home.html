@@ -10,6 +10,11 @@
 </ion-header>
 
 <ion-content padding>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi reprehenderit labore esse iusto ut dolore cumque quae
-    earum optio quasi, explicabo in sunt quo, dicta totam, numquam nobis rerum suscipit?</p>
+  <ion-list>
+    <ion-item-sliding *ngFor="let associado of associados">
+      <ion-item>
+        {{ associado.nome }} - {{ associado.areas }}
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

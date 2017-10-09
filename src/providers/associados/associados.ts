@@ -45,7 +45,7 @@ export class AssociadosProvider {
       .subscribe(data => {
         this.data.response = data["_body"];
         this.grupoLogado = JSON.parse(this.data.response);
-        console.log(this.grupoLogado);        
+        console.log(this.grupoLogado);
       }, error => {
         console.log("Oooops!");
       });
@@ -54,5 +54,17 @@ export class AssociadosProvider {
   getGrupoLogado(): Associados {
     console.log(this.grupoLogado);
     return this.grupoLogado;
+  }
+
+  getAssociados() {
+    var link = 'http://vmenezes-com.umbler.net/getAssociados.php'
+    return this.http
+      .get(link)
+      .map(res => res.json())
+      .toPromise()
+      .then(dados => {
+        return dados;
+      })
+
   }
 }
