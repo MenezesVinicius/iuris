@@ -1,0 +1,31 @@
+<ion-header>
+    
+      <ion-navbar>
+        <ion-title>Cadastro - Associados</ion-title>
+      </ion-navbar>
+    
+    </ion-header>
+    
+    <ion-content padding>
+    
+     <form (submit)="efetuaCadastro()">
+        <ion-item>
+            <ion-label stacked>Nome completo</ion-label>
+            <ion-input [(ngModel)]="nome" name="nome" type="text"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input [(ngModel)]="email" name="email" type="email"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+            <ion-label stacked>Senha</ion-label>
+            <ion-input [(ngModel)]="senha" name="senha" type="password"></ion-input>
+        </ion-item>
+    
+        <button ion-button block type="submit">Cadastrar</button>
+      </form>
+      <button ion-button block color="danger" (click)="gotoLogin()">Possui conta? Faça login</button>    
+    
+    </ion-content>

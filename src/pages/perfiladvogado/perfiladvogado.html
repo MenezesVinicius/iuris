@@ -1,0 +1,59 @@
+<ion-header>
+    
+        <ion-navbar>
+            <ion-title>Perfil</ion-title>
+        </ion-navbar>
+    
+    </ion-header>
+    
+    <ion-content padding>
+    
+        <ion-list>
+            <ion-item>
+                <ion-label>Nome completo</ion-label>
+                <ion-input [(ngModel)]="advogado.nome" name="nome" type="text"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+                <ion-label>Email</ion-label>
+                <ion-input [(ngModel)]="advogado.email" name="email" type="email"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+                <ion-label>Senha</ion-label>
+                <ion-input [(ngModel)]="advogado.senha" name="senha" type="password"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+                <ion-label>Nível</ion-label>
+                <ion-select [(ngModel)]="advogado.nivel">
+                    <ion-option value="junior">Júnior</ion-option>
+                    <ion-option value="pleno">Pleno</ion-option>
+                    <ion-option value="senior">Sênior</ion-option>
+                </ion-select>
+            </ion-item>
+    
+            <ion-item>
+                <ion-label>OAB</ion-label>
+                <ion-input [(ngModel)]="advogado.oab" name="oab" type="text"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+                <ion-label>Endereço</ion-label>
+                <ion-input [(ngModel)]="advogado.endereco" name="endereco" type="text"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+                <ion-label>Número</ion-label>
+                <ion-input [(ngModel)]="advogado.numero" name="numero" type="number"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+                <ion-label>Bairro</ion-label>
+                <ion-input [(ngModel)]="advogado.bairro" name="bairro" type="text"></ion-input>
+            </ion-item>
+    
+        </ion-list>
+    
+        <button ion-button block (click)="efetuaAlteracao()">Confirmar</button>    
+    </ion-content>
