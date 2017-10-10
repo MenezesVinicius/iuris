@@ -11,23 +11,38 @@ import { AssociadosProvider } from '../../providers/associados/associados';
 })
 export class CadastrogrupoPage {
 
-  public grupo : Associados;
-  
+  public grupo: Associados;
+  public areas = [
+    { area: 'Trabalhista', checked: false },
+    { area: 'Trânsito', checked: false },
+    { area: 'Consumidor', checked: false },
+    { area: 'Família', checked: false },
+    { area: 'Penal', checked: false },
+    { area: 'Contratos', checked: false },
+    { area: 'Empresarial', checked: false },
+    { area: 'Ambiental', checked: false },
+    { area: 'Tributário', checked: false },
+    { area: 'Administrativo', checked: false },
+    { area: 'Outro', checked: false }
+  ];
+
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     public events: Events,
     private assProvider: AssociadosProvider) {
-      this.grupo = new Associados();
+    this.grupo = new Associados();
   }
 
   efetuaCadastro() {
+    let areasSelecionadas = this.areas.filter(area => area.checked == true);
+    this.grupo.areas =  areasSelecionadas.map(function(obj){return obj.area;}).join(', '); // returns the expected output.
     this.assProvider.cadastrarGrupo(this.grupo);
-    this.events.publish('tipoLogado', 'grupo');    
+    this.events.publish('tipoLogado', 'grupo');
     this.navCtrl.setRoot(HomePage);
   }
 
-  gotoLogin(){
+  gotoLogin() {
     this.assProvider.logarGrupo(this.grupo);
     this.navCtrl.pop();
   }

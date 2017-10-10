@@ -5,6 +5,7 @@ export class Associados {
         public senha: string = '',
         public areas: string = '',
         public telefone: string = '',
+        public site: string = '',
         public rua: string = '',
         public numero: string = '',
         public bairro: string = '',

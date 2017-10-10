@@ -10,29 +10,33 @@
 
     <ion-list>
         <ion-item>
-            <ion-label>Empresa</ion-label>
+            <ion-label stacked>Empresa</ion-label>
             <ion-input [(ngModel)]="grupo.nome" name="nome" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label>Email</ion-label>
+            <ion-label stacked> Email</ion-label>
             <ion-input [(ngModel)]="grupo.email" name="email" type="email"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label>Senha</ion-label>
+            <ion-label stacked>Senha</ion-label>
             <ion-input [(ngModel)]="grupo.senha" name="senha" type="password"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label>Telefone</ion-label>
+            <ion-label stacked>Telefone</ion-label>
             <ion-input [(ngModel)]="grupo.telefone" name="telefone" type="phone"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label>Áreas de atuação</ion-label>
-            <ion-input [(ngModel)]="grupo.areas" name="areas" type="text"></ion-input>
+            <ion-label stacked>Áreas de atuação</ion-label>
         </ion-item>
+        <ion-item *ngFor="let area of areas">
+            <ion-label> {{area.area}}</ion-label>
+            <ion-checkbox checked="false" [(ngModel)]="area.checked"></ion-checkbox>
+        </ion-item>
+
     </ion-list>
 
     <button ion-button block (click)="efetuaCadastro()">Cadastrar</button>

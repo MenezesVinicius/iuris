@@ -19,10 +19,10 @@ export class ProcurarAssPage {
 
   pesquisarAss() {
     let dados = {
-      _empresa: this.empresa,
-      _area: this.area,
-      _dist: this.distancia,
-      _numEquipe: this.numEquipe
+      empresa: this.empresa,
+      area: this.area,
+      distancia: this.distancia,
+      numEquipe: this.numEquipe
     };
     console.log(dados);
     this.navCtrl.push(TabsAdvogadoPage, { _dados: dados });

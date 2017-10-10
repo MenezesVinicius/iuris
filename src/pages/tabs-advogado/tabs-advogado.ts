@@ -17,6 +17,7 @@ export class TabsAdvogadoPage {
     public navCtrl: NavController,
     public navParams: NavParams) {
       this.dados = this.navParams.get('_dados');
+      console.log(this.dados);
   }
 
 }
