@@ -22,6 +22,8 @@ import { TabsAdvogadoPage } from '../pages/tabs-advogado/tabs-advogado';
 import { AreaAssPage } from '../pages/area-ass/area-ass';
 import { ProcurarAssPage } from '../pages/procurar-ass/procurar-ass';
 import { ListarAssPage } from '../pages/listar-ass/listar-ass';
+import { SelecionadoAssPage } from '../pages/selecionado-ass/selecionado-ass';
+import { ResultadoAssPage } from '../pages/resultado-ass/resultado-ass';
 
 @NgModule({
   declarations: [
@@ -37,8 +39,9 @@ import { ListarAssPage } from '../pages/listar-ass/listar-ass';
     TabsAdvogadoPage,
     AreaAssPage,
     ProcurarAssPage,
-    ListarAssPage
-
+    ListarAssPage,
+    SelecionadoAssPage,
+    ResultadoAssPage
   ],
   imports: [
     BrowserModule,
@@ -59,8 +62,9 @@ import { ListarAssPage } from '../pages/listar-ass/listar-ass';
     TabsAdvogadoPage,
     AreaAssPage,
     ProcurarAssPage,
-    ListarAssPage
-
+    ListarAssPage,
+    SelecionadoAssPage,
+    ResultadoAssPage
   ],
   providers: [
     StatusBar,

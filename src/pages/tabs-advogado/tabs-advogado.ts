@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
-import { ListarAssPage } from '../listar-ass/listar-ass';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AreaAssPage } from '../area-ass/area-ass';
-import { ProcurarAssPage } from '../procurar-ass/procurar-ass';
+import { ResultadoAssPage } from '../resultado-ass/resultado-ass';
 
 @Component({
   selector: 'page-tabs-advogado',
@@ -10,10 +9,14 @@ import { ProcurarAssPage } from '../procurar-ass/procurar-ass';
 })
 export class TabsAdvogadoPage {
 
-  listarAssRoot: any = ListarAssPage
-  procurarAssRoot: any = ProcurarAssPage
+  procurarAssRoot: any = ResultadoAssPage
   areaAssRoot: any = AreaAssPage
+  dados: any;
 
-  constructor(public navCtrl: NavController) {}
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams) {
+      this.dados = this.navParams.get('_dados');
+  }
 
 }

@@ -1,25 +1,31 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TabsAdvogadoPage } from '../tabs-advogado/tabs-advogado';
 
-/**
- * Generated class for the ProcurarAssPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage()
 @Component({
   selector: 'page-procurar-ass',
   templateUrl: 'procurar-ass.html',
 })
 export class ProcurarAssPage {
+  empresa: String;
+  area: String;
+  distancia: number;
+  numEquipe: number
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProcurarAssPage');
+  pesquisarAss() {
+    let dados = {
+      _empresa: this.empresa,
+      _area: this.area,
+      _dist: this.distancia,
+      _numEquipe: this.numEquipe
+    };
+    console.log(dados);
+    this.navCtrl.push(TabsAdvogadoPage, { _dados: dados });
   }
 
 }

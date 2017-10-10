@@ -2,13 +2,20 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Navbar } from 'ionic-angular';
 
 @Component({
-  selector: 'page-area-ass',
-  templateUrl: 'area-ass.html',
+  selector: 'page-resultado-ass',
+  templateUrl: 'resultado-ass.html',
 })
-export class AreaAssPage {
+export class ResultadoAssPage {
   @ViewChild(Navbar) navBar:Navbar;
+  empresa: String;
+  area: String;
+  distancia: number;
+  numEquipe: number
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams) {
+      console.log('Passed params', navParams.data);
   }
 
   ionViewDidLoad() {

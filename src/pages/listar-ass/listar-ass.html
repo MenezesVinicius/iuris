@@ -11,10 +11,14 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item-sliding *ngFor="let associado of associados">
+    <ion-item-sliding *ngFor="let associado of associados" (click)="selecionaAss(associado)">
       <ion-item>
         {{ associado.nome }} - {{ associado.areas }}
       </ion-item>
     </ion-item-sliding>
   </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab color="danger" (click)="gotoSearch()"><ion-icon name="search"></ion-icon></button>
+  </ion-fab>
 </ion-content>

@@ -4,7 +4,7 @@ import { HomePage } from '../home/home';
 import { CadastroPage } from '../cadastro/cadastro';
 import { AdvogadoProvider } from '../../providers/advogado/advogado';
 import { Advogado } from '../../providers/advogado/adv';
-import { TabsAdvogadoPage } from '../tabs-advogado/tabs-advogado';
+import { ListarAssPage } from '../listar-ass/listar-ass';
 
 @Component({
   selector: 'page-login',
@@ -27,7 +27,7 @@ export class LoginPage {
   efetuaLogin() {
     this.advProvider.logarAdvogado(this.advogado);
     this.events.publish('tipoLogado', 'advogado'); 
-    this.navCtrl.setRoot(TabsAdvogadoPage);
+    this.navCtrl.setRoot(ListarAssPage);
   }
 
   gotoCadastro() {
