@@ -1,12 +1,27 @@
 <ion-header>
-
   <ion-navbar>
-    <ion-title>conexoes</ion-title>
+    <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+    <ion-title>
+      Conexões
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
-  Para fazer
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-card *ngFor="let associado of associados" (click)="selecionaAss(associado)">
+        <ion-card-header class="card-header">
+          {{ associado.nome }}
+        </ion-card-header>
+        <ion-card-content padding class="card-content">
+          <ion-row>
+            Áreas: {{ associado.areas }}
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>

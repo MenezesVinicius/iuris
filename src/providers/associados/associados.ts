@@ -26,7 +26,7 @@ export class AssociadosProvider {
       .subscribe(data => {
         this.data.response = data["_body"];
         console.log(this.data.response);
-        this.grupoLogado = grupo;
+        this.grupoLogado = JSON.parse(this.data.response);
       }, error => {
         console.log("Oooops!");
       });
@@ -51,6 +51,29 @@ export class AssociadosProvider {
       });
   }
 
+  setInteresse(id_advogado: number, id_associado: number){
+    var link = 'http://vmenezes-com.umbler.net/setInteresse.php';
+    let hdrs = new Headers();
+    hdrs.append('Content-Type', "application/json");
+    let options = new RequestOptions({ headers: hdrs });
+    let data = {
+      tipo: 'associado',
+      id_advogado: id_advogado,
+      id_associado: id_associado
+    }
+    let dataJson = JSON.stringify(data);
+    console.log(dataJson);
+
+    return this.http.post(link, data, options)
+      .subscribe(data => {
+        this.data.response = data["_body"];
+        let response = JSON.parse(this.data.response);
+        console.log(response);        
+      }, error => {
+        console.log("Oooops!");
+      });
+  }
+
   getGrupoLogado(): Associados {
     console.log(this.grupoLogado);
     return this.grupoLogado;
@@ -65,6 +88,5 @@ export class AssociadosProvider {
       .then(dados => {
         return dados;
       })
-
   }
 }
