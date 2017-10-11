@@ -89,4 +89,15 @@ export class AssociadosProvider {
         return dados;
       })
   }
+
+  getConexoes(id_associado: number){
+    var link = 'http://vmenezes-com.umbler.net/getConexoes.php?id_associado=' + id_associado + '&tipo=associado';
+    return this.http
+      .get(link)
+      .map(res => res.json())
+      .toPromise()
+      .then(dados => {
+        return dados;
+      })
+  }
 }

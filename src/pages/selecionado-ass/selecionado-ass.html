@@ -41,6 +41,6 @@
   </ion-list>
 </ion-content>
 
-<ion-footer padding>
+<ion-footer padding *ngIf="!fromConexoes">
   <button ion-button block color="danger" (click)="interesseAss()">Tenho interesse!</button>
 </ion-footer>

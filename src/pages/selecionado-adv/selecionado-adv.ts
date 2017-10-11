@@ -13,6 +13,7 @@ import { AssociadosProvider } from '../../providers/associados/associados';
 export class SelecionadoAdvPage {
   associado: Associados;
   advogado: Advogado;
+  fromConexoes: number = 0;
 
   constructor(
     public navCtrl: NavController,
@@ -20,6 +21,8 @@ export class SelecionadoAdvPage {
     private assProvider: AssociadosProvider,
     private advProvider: AdvogadoProvider) {
     this.advogado = this.navParams.get('advSelecionado');
+    this.fromConexoes = this.navParams.get('fromConexoes');
+    console.log(this.fromConexoes);
     this.associado = this.assProvider.getGrupoLogado();
   }
 

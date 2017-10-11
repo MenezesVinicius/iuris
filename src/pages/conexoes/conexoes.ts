@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AdvogadoProvider } from '../../providers/advogado/advogado';
 import { Associados } from '../../providers/associados/grupo';
 import { Advogado } from '../../providers/advogado/adv';
+import { SelecionadoAssPage } from '../selecionado-ass/selecionado-ass';
 
 @Component({
   selector: 'page-conexoes',
@@ -24,4 +25,8 @@ export class ConexoesPage {
       });
   }
 
+  selecionaAss(associado: Associados){
+    console.log(associado);
+    this.navCtrl.push(SelecionadoAssPage, { assSelecionado: associado, fromConexoes: 1 });
+  }
 }
