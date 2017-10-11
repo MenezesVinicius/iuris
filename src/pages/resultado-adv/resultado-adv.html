@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar class="force-back-button">
+    <ion-title>Lista</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-sliding *ngFor="let advogado of advogadosPesquisa" (click)="selecionadoAdv(advogado)">
+      <ion-item>
+        {{ advogado.nome }}
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

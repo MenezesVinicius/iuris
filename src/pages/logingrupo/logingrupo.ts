@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { CadastrogrupoPage } from '../cadastrogrupo/cadastrogrupo';
 import { Associados } from '../../providers/associados/grupo';
 import { AssociadosProvider } from '../../providers/associados/associados';
+import { ListarAdvPage } from '../listar-adv/listar-adv';
 
 @Component({
   selector: 'page-logingrupo',
@@ -26,7 +26,7 @@ export class LogingrupoPage {
   efetuaLogin() {
     this.assProvider.logarGrupo(this.grupo);
     this.events.publish('tipoLogado', 'grupo'); 
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(ListarAdvPage);
   }
 
   gotoCadastro() {

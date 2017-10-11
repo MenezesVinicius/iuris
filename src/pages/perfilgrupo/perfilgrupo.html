@@ -1,21 +1,24 @@
 <ion-header>
-
     <ion-navbar>
-        <ion-title>Perfil</ion-title>
+        <button ion-button menuToggle>
+                    <ion-icon name="menu"></ion-icon>
+                  </button>
+        <ion-title>
+            Perfil
+        </ion-title>
     </ion-navbar>
-
 </ion-header>
 
 <ion-content padding>
 
     <ion-list>
         <ion-item>
-            <ion-label>Empresa</ion-label>
+            <ion-label stacked>Empresa</ion-label>
             <ion-input [(ngModel)]="grupo.nome" name="nome" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label>Email</ion-label>
+            <ion-label stacked>Email</ion-label>
             <ion-input [(ngModel)]="grupo.email" name="email" type="email"></ion-input>
         </ion-item>
 
@@ -25,32 +28,32 @@
         </ion-item>
 
         <ion-item>
-            <ion-label>Telefone</ion-label>
+            <ion-label stacked>Telefone</ion-label>
             <ion-input [(ngModel)]="grupo.telefone" name="telefone" type="phone"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label>Áreas</ion-label>
+            <ion-label stacked>Áreas</ion-label>
             <ion-input [(ngModel)]="grupo.areas" name="areas" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label>Rua</ion-label>
+            <ion-label stacked>Rua</ion-label>
             <ion-input [(ngModel)]="grupo.rua" name="endereco" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label>Número</ion-label>
+            <ion-label stacked>Número</ion-label>
             <ion-input [(ngModel)]="grupo.numero" name="numero" type="number"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label>Bairro</ion-label>
+            <ion-label stacked>Bairro</ion-label>
             <ion-input [(ngModel)]="grupo.bairro" name="bairro" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label>Sobre</ion-label>
+            <ion-label stacked>Sobre</ion-label>
             <ion-input [(ngModel)]="grupo.sobre" name="sobre" type="text"></ion-input>
         </ion-item>
 

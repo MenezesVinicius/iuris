@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { CadastroPage } from '../cadastro/cadastro';
 import { AdvogadoProvider } from '../../providers/advogado/advogado';
 import { Advogado } from '../../providers/advogado/adv';

@@ -8,7 +8,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { TipousuarioPage } from '../pages/tipousuario/tipousuario';
@@ -24,12 +23,20 @@ import { ProcurarAssPage } from '../pages/procurar-ass/procurar-ass';
 import { ListarAssPage } from '../pages/listar-ass/listar-ass';
 import { SelecionadoAssPage } from '../pages/selecionado-ass/selecionado-ass';
 import { ResultadoAssPage } from '../pages/resultado-ass/resultado-ass';
+import { ConexoesPage } from '../pages/conexoes/conexoes';
+import { GpsProvider } from '../providers/gps/gps';
+import { ListarAdvPage } from '../pages/listar-adv/listar-adv';
+import { SelecionadoAdvPage } from '../pages/selecionado-adv/selecionado-adv';
+import { ProcurarAdvPage } from '../pages/procurar-adv/procurar-adv';
+import { ResultadoAdvPage } from '../pages/resultado-adv/resultado-adv';
+import { AreaAdvPage } from '../pages/area-adv/area-adv';
+import { TabsAssociadosPage } from '../pages/tabs-associados/tabs-associados';
+import { ConexoesAssPage } from '../pages/conexoes-ass/conexoes-ass';
 
 @NgModule({
   declarations: [
     MyApp,
     TipousuarioPage,
-    HomePage,
     LoginPage,
     LogingrupoPage,
     CadastroPage,
@@ -41,7 +48,15 @@ import { ResultadoAssPage } from '../pages/resultado-ass/resultado-ass';
     ProcurarAssPage,
     ListarAssPage,
     SelecionadoAssPage,
-    ResultadoAssPage
+    ResultadoAssPage,
+    ConexoesPage,
+    ListarAdvPage,
+    ProcurarAdvPage,
+    SelecionadoAdvPage,
+    TabsAssociadosPage,
+    AreaAdvPage,
+    ResultadoAdvPage,
+    ConexoesAssPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +67,6 @@ import { ResultadoAssPage } from '../pages/resultado-ass/resultado-ass';
   entryComponents: [
     MyApp,
     TipousuarioPage,
-    HomePage,
     LoginPage,
     LogingrupoPage,
     CadastroPage,
@@ -64,14 +78,23 @@ import { ResultadoAssPage } from '../pages/resultado-ass/resultado-ass';
     ProcurarAssPage,
     ListarAssPage,
     SelecionadoAssPage,
-    ResultadoAssPage
+    ResultadoAssPage,
+    ConexoesPage,
+    ListarAdvPage,
+    ProcurarAdvPage,
+    SelecionadoAdvPage,
+    TabsAssociadosPage,
+    AreaAdvPage,
+    ResultadoAdvPage,
+    ConexoesAssPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AdvogadoProvider,
-    AssociadosProvider
+    AssociadosProvider,
+    GpsProvider
   ]
 })
 export class AppModule {}

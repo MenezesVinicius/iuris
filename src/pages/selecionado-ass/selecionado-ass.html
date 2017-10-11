@@ -7,7 +7,38 @@
 
 
 <ion-content padding>
-  {{ associado.nome }}
+  <ion-list>
+    <ion-item>
+      Empresa: {{ associado.nome }}
+    </ion-item>
+    <ion-item>
+      Email: {{ associado.email }}
+    </ion-item>
+    <ion-item>
+      Áreas: {{ associado.areas }}
+    </ion-item>
+    <ion-item>
+      Tamanho da equipe: {{ associado.numEquipe }}
+    </ion-item>
+    <ion-item>
+      Telefone: {{ associado.telefone }}
+    </ion-item>
+    <ion-item>
+      Site: {{ associado.site }}
+    </ion-item>
+    <ion-item>
+      Rua: {{ associado.rua }}
+    </ion-item>
+    <ion-item>
+      Número: {{ associado.numero }}
+    </ion-item>
+    <ion-item>
+      Bairro: {{ associado.bairro }}
+    </ion-item>
+    <ion-item>
+      Sobre: {{ associado.sobre }}
+    </ion-item>
+  </ion-list>
 </ion-content>
 
 <ion-footer padding>

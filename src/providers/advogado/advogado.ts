@@ -53,4 +53,15 @@ export class AdvogadoProvider {
     console.log(this.advogadoLogado);
     return this.advogadoLogado;
   }
+
+  getAdvogados(){
+    var link = 'http://vmenezes-com.umbler.net/getAdvogados.php'
+    return this.http
+      .get(link)
+      .map(res => res.json())
+      .toPromise()
+      .then(dados => {
+        return dados;
+      })
+  }
 }

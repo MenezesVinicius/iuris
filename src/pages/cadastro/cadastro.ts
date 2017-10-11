@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { LoginPage } from '../login/login';
 import { AdvogadoProvider } from '../../providers/advogado/advogado';
 import { Advogado } from '../../providers/advogado/adv';
+import { ListarAdvPage } from '../listar-adv/listar-adv';
 
 @Component({
   selector: 'page-cadastro',
@@ -24,7 +24,7 @@ export class CadastroPage {
   efetuaCadastro() {
     this.advProvider.cadastrarAdvogado(this.advogado);
     this.events.publish('tipoLogado', 'advogado'); 
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(ListarAdvPage);
   }
 
   gotoLogin(){

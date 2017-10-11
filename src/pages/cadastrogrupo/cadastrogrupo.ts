@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { LogingrupoPage } from '../logingrupo/logingrupo';
 import { Associados } from '../../providers/associados/grupo';
 import { AssociadosProvider } from '../../providers/associados/associados';
+import { ListarAdvPage } from '../listar-adv/listar-adv';
 
 @Component({
   selector: 'page-cadastrogrupo',
@@ -37,9 +37,10 @@ export class CadastrogrupoPage {
   efetuaCadastro() {
     let areasSelecionadas = this.areas.filter(area => area.checked == true);
     this.grupo.areas =  areasSelecionadas.map(function(obj){return obj.area;}).join(', '); // returns the expected output.
+    console.log(this.grupo);
     this.assProvider.cadastrarGrupo(this.grupo);
     this.events.publish('tipoLogado', 'grupo');
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(ListarAdvPage);
   }
 
   gotoLogin() {

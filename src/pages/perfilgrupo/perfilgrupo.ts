@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Associados } from '../../providers/associados/grupo';
 import { AssociadosProvider } from '../../providers/associados/associados';
-import { HomePage } from '../home/home';
+import { ListarAdvPage } from '../listar-adv/listar-adv';
 
 @Component({
   selector: 'page-perfilgrupo',
@@ -20,6 +20,6 @@ export class PerfilgrupoPage {
   }
 
   efetuaAlteracao() {
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(ListarAdvPage);
   }
 }

@@ -16,28 +16,28 @@
       <ion-input [(ngModel)]="empresa" name="nome" type="text"></ion-input>
     </ion-item>
     <ion-item>
-        <ion-label stacked>Área de atuação</ion-label>
-        <ion-select [(ngModel)]="area">
-            <ion-option value="trânsito">Trânsito</ion-option>
-            <ion-option value="trabalhista">Trabalhista</ion-option>
-            <ion-option value="consumidor">Consumidor</ion-option>
-            <ion-option value="família">Família</ion-option>
-            <ion-option value="penal">Penal</ion-option>
-            <ion-option value="contratos">Contratos</ion-option>
-            <ion-option value="empresarial">Empresarial</ion-option>
-            <ion-option value="ambiental">Ambiental</ion-option>
-            <ion-option value="tributário">Tributário</ion-option>
-            <ion-option value="administrativo">Administrativo</ion-option>
-            <ion-option value="outro">Outro</ion-option>
-        </ion-select>
+      <ion-label stacked>Área de atuação</ion-label>
+      <ion-select [(ngModel)]="area">
+        <ion-option value="trânsito">Trânsito</ion-option>
+        <ion-option value="trabalhista">Trabalhista</ion-option>
+        <ion-option value="consumidor">Consumidor</ion-option>
+        <ion-option value="família">Família</ion-option>
+        <ion-option value="penal">Penal</ion-option>
+        <ion-option value="contratos">Contratos</ion-option>
+        <ion-option value="empresarial">Empresarial</ion-option>
+        <ion-option value="ambiental">Ambiental</ion-option>
+        <ion-option value="tributário">Tributário</ion-option>
+        <ion-option value="administrativo">Administrativo</ion-option>
+        <ion-option value="outro">Outro</ion-option>
+      </ion-select>
     </ion-item>
     <ion-item>
-        <ion-label stacked>Número de pessoas na equipe menor que:</ion-label>
-        <ion-range min="0" max="30" pin="true" step="1" [(ngModel)]="numEquipe">
-            <ion-label range-left>0</ion-label>
-            <ion-label range-right>30</ion-label>
-          </ion-range>
-      </ion-item>
+      <ion-label stacked>Número de pessoas na equipe menor que:</ion-label>
+      <ion-range min="0" max="30" pin="true" step="1" [(ngModel)]="numEquipe">
+        <ion-label range-left>0</ion-label>
+        <ion-label range-right>20</ion-label>
+      </ion-range>
+    </ion-item>
     <ion-item>
       <ion-label stacked>Distância (km)</ion-label>
       <ion-range min="0" max="50" pin="true" step="1" [(ngModel)]="distancia">

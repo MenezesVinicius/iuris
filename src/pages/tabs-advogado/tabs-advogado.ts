@@ -9,7 +9,7 @@ import { ResultadoAssPage } from '../resultado-ass/resultado-ass';
 })
 export class TabsAdvogadoPage {
 
-  procurarAssRoot: any = ResultadoAssPage
+  resultadoAssRoot: any = ResultadoAssPage
   areaAssRoot: any = AreaAssPage
   dados: any;
 

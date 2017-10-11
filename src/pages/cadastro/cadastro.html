@@ -10,22 +10,22 @@
 
     <ion-list>
         <ion-item>
-            <ion-label>Nome completo</ion-label>
+            <ion-label stacked>Nome completo</ion-label>
             <ion-input [(ngModel)]="advogado.nome" name="nome" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label>Email</ion-label>
+            <ion-label stacked>Email</ion-label>
             <ion-input [(ngModel)]="advogado.email" name="email" type="email"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label>Senha</ion-label>
+            <ion-label stacked>Senha</ion-label>
             <ion-input [(ngModel)]="advogado.senha" name="senha" type="password"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label>Nível</ion-label>
+            <ion-label stacked>Nível</ion-label>
             <ion-select [(ngModel)]="advogado.nivel">
                 <ion-option value="junior">Júnior</ion-option>
                 <ion-option value="pleno">Pleno</ion-option>

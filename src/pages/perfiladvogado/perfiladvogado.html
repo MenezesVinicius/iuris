@@ -1,54 +1,57 @@
 <ion-header>
-    
-        <ion-navbar>
-            <ion-title>Perfil</ion-title>
-        </ion-navbar>
-    
-    </ion-header>
-    
-    <ion-content padding>
-    
-        <ion-list>
-            <ion-item>
-                <ion-label>Nome completo</ion-label>
-                <ion-input [(ngModel)]="advogado.nome" name="nome" type="text"></ion-input>
-            </ion-item>
-    
-            <ion-item>
-                <ion-label>Email</ion-label>
-                <ion-input [(ngModel)]="advogado.email" name="email" type="email"></ion-input>
-            </ion-item>
-    
-            <ion-item>
-                <ion-label>Nível</ion-label>
-                <ion-select [(ngModel)]="advogado.nivel">
-                    <ion-option value="junior">Júnior</ion-option>
-                    <ion-option value="pleno">Pleno</ion-option>
-                    <ion-option value="senior">Sênior</ion-option>
-                </ion-select>
-            </ion-item>
-    
-            <ion-item>
-                <ion-label>OAB</ion-label>
-                <ion-input [(ngModel)]="advogado.oab" name="oab" type="text"></ion-input>
-            </ion-item>
-    
-            <ion-item>
-                <ion-label>Rua</ion-label>
-                <ion-input [(ngModel)]="advogado.rua" name="endereco" type="text"></ion-input>
-            </ion-item>
-    
-            <ion-item>
-                <ion-label>Número</ion-label>
-                <ion-input [(ngModel)]="advogado.numero" name="numero" type="number"></ion-input>
-            </ion-item>
-    
-            <ion-item>
-                <ion-label>Bairro</ion-label>
-                <ion-input [(ngModel)]="advogado.bairro" name="bairro" type="text"></ion-input>
-            </ion-item>
-    
-        </ion-list>
-    
-        <button ion-button block (click)="efetuaAlteracao()">Confirmar</button>    
-    </ion-content>
+    <ion-navbar>
+        <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+              </button>
+        <ion-title>
+            Perfil
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-item>
+            <ion-label stacked>Nome completo</ion-label>
+            <ion-input [(ngModel)]="advogado.nome" name="nome" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input [(ngModel)]="advogado.email" name="email" type="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Nível</ion-label>
+            <ion-select [(ngModel)]="advogado.nivel">
+                <ion-option value="junior">Júnior</ion-option>
+                <ion-option value="pleno">Pleno</ion-option>
+                <ion-option value="senior">Sênior</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>OAB</ion-label>
+            <ion-input [(ngModel)]="advogado.oab" name="oab" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Rua</ion-label>
+            <ion-input [(ngModel)]="advogado.rua" name="endereco" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Número</ion-label>
+            <ion-input [(ngModel)]="advogado.numero" name="numero" type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Bairro</ion-label>
+            <ion-input [(ngModel)]="advogado.bairro" name="bairro" type="text"></ion-input>
+        </ion-item>
+
+    </ion-list>
+
+    <button ion-button block (click)="efetuaAlteracao()">Confirmar</button>
+</ion-content>

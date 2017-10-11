@@ -1,0 +1,51 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Advogado</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      Nome: {{ advogado.nome }}
+    </ion-item>
+    <ion-item>
+      Email: {{ advogado.email }}
+    </ion-item>
+    <ion-item>
+      Área: {{ advogado.area }}
+    </ion-item>
+    <ion-item>
+      Nível: {{ advogado.nivel }}
+    </ion-item>
+    <ion-item>
+      OAB: {{ advogado.oab }}
+    </ion-item>
+    <ion-item>
+      Telefone: {{ advogado.telefone }}
+    </ion-item>
+    <ion-item>
+      Rua: {{ advogado.rua }}
+    </ion-item>
+    <ion-item>
+      Número: {{ advogado.numero }}
+    </ion-item>
+    <ion-item>
+      Bairro: {{ advogado.bairro }}
+    </ion-item>
+    <ion-item>
+      Idiomas: {{ advogado.idiomas }}
+    </ion-item>
+    <ion-item>
+      Formação: {{ advogado.formacao }}
+    </ion-item>
+    <ion-item>
+      Sobre: {{ advogado.sobre }}
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer padding>
+  <button ion-button block color="danger" (click)="interesseAdv()">Tenho interesse!</button>
+</ion-footer>

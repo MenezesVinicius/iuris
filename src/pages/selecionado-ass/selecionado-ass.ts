@@ -15,7 +15,7 @@ export class SelecionadoAssPage {
       this.associado = this.navParams.get('assSelecionado');
   }
 
-  
-
-
+  interesseAss(){
+    
+  }
 }

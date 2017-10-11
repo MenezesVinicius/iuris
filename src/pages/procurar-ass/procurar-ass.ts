@@ -27,5 +27,4 @@ export class ProcurarAssPage {
     console.log(dados);
     this.navCtrl.push(TabsAdvogadoPage, { _dados: dados });
   }
-
 }
