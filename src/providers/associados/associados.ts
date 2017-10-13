@@ -23,10 +23,12 @@ export class AssociadosProvider {
     console.log(data);
 
     return this.http.post(link, data, options)
-      .subscribe(data => {
+      .toPromise()
+      .then(data => {
         this.data.response = data["_body"];
         console.log(this.data.response);
         this.grupoLogado = JSON.parse(this.data.response);
+        return this.data.response;
       }, error => {
         console.log("Oooops!");
       });
@@ -42,16 +44,17 @@ export class AssociadosProvider {
     console.log(data);
 
     return this.http.post(link, data, options)
-      .subscribe(data => {
+      .toPromise()
+      .then(data => {
         this.data.response = data["_body"];
         this.grupoLogado = JSON.parse(this.data.response);
-        console.log(this.grupoLogado);
+        return this.data.response;
       }, error => {
         console.log("Oooops!");
       });
   }
 
-  setInteresse(id_advogado: number, id_associado: number){
+  setInteresse(id_advogado: number, id_associado: number) {
     var link = 'http://vmenezes-com.umbler.net/setInteresse.php';
     let hdrs = new Headers();
     hdrs.append('Content-Type', "application/json");
@@ -64,11 +67,14 @@ export class AssociadosProvider {
     let dataJson = JSON.stringify(data);
     console.log(dataJson);
 
-    return this.http.post(link, data, options)
-      .subscribe(data => {
+    return this.http
+      .post(link, data, options)
+      .toPromise()
+      .then(data => {
         this.data.response = data["_body"];
         let response = JSON.parse(this.data.response);
-        console.log(response);        
+        console.log(response);
+        return response;
       }, error => {
         console.log("Oooops!");
       });
@@ -90,7 +96,7 @@ export class AssociadosProvider {
       })
   }
 
-  getConexoes(id_associado: number){
+  getConexoes(id_associado: number) {
     var link = 'http://vmenezes-com.umbler.net/getConexoes.php?id_associado=' + id_associado + '&tipo=associado';
     return this.http
       .get(link)

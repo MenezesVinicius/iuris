@@ -1,26 +1,25 @@
 <ion-header>
-    
-      <ion-navbar>
-        <ion-title>Login - Associados</ion-title>
-      </ion-navbar>
-    
-    </ion-header>
-    
-    <ion-content padding>
-    
-      <form (submit)="efetuaLogin()">
-        <ion-item>
-          <ion-label stacked>Email</ion-label>
-          <ion-input [(ngModel)]="grupo.email" name="email" type="text"></ion-input>
-        </ion-item>
-    
-        <ion-item>
-          <ion-label stacked>Senha</ion-label>
-          <ion-input [(ngModel)]="grupo.senha" name="senha" type="password"></ion-input>
-        </ion-item>
-    
-        <button ion-button block type="submit">Entrar</button>
-      </form>
-      <button ion-button block color="secondary" (click)="gotoCadastro()">Novo usuário? Cadastre-se</button>
-    
-    </ion-content>
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="login-content">
+  <div class="login-box">
+
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input [(ngModel)]="grupo.email" name="email" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Senha</ion-label>
+        <ion-input [(ngModel)]="grupo.senha" name="senha" type="password"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <button ion-button block (click)="efetuaLogin()">Entrar</button>
+    <button ion-button block color="gray" (click)="gotoCadastro()">Novo usuário? Cadastre-se</button>
+  </div>
+
+</ion-content>

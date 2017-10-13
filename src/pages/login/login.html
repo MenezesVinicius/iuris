@@ -1,19 +1,16 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Login</ion-title>
   </ion-navbar>
 
 </ion-header>
-
+<!-- 
 <ion-content padding>
-
   <ion-list>
     <ion-item>
       <ion-label stacked>Email</ion-label>
       <ion-input [(ngModel)]="advogado.email" name="email" type="text"></ion-input>
     </ion-item>
-
     <ion-item>
       <ion-label stacked>Senha</ion-label>
       <ion-input [(ngModel)]="advogado.senha" name="senha" type="password"></ion-input>
@@ -24,5 +21,22 @@
   </div>
   <div>
     <button ion-button block color="secondary" (click)="gotoCadastro()">Novo usuário? Cadastre-se</button>
+  </div>
+</ion-content> -->
+
+<ion-content class="login-content" padding>
+  <div class="login-box">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input [(ngModel)]="advogado.email" name="email" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Senha</ion-label>
+        <ion-input [(ngModel)]="advogado.senha" name="senha" type="password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button block (click)="efetuaLogin()">Entrar</button>
+    <button ion-button block color="gray" (click)="gotoCadastro()">Novo usuário? Cadastre-se</button>
   </div>
 </ion-content>

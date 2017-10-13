@@ -1,10 +1,18 @@
 page-conexoes {
-    .card-header{
-        background-color:#32db64;
-        color: white;
+    ion-label{
+        white-space: normal !important;
     }
 
-    .card-content{
-        white-space: normal;
+    ion-item-group{
+        border: solid 1px #32db64;
+        margin-bottom: 10px;
+    }
+
+    ion-item-divider{
+        font-size: 18px !important;
+    }
+
+    .item-inner{
+        border-bottom: none !important;
     }
 }

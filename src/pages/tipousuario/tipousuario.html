@@ -1,23 +1,24 @@
+<ion-header>
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
 <ion-content>
+
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-card (click)="gotoLoginAdvogado()">
-          <img src="../../assets/img/man.png" class="advogado" />
-          <ion-card-title text-center>
-            Advogado
-          </ion-card-title>
-        </ion-card>
+        <h1>Conectando Advogados aos Escritórios.</h1>
+        <h5>Selecione seu perfil</h5>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
-        <ion-card (click)="gotoLoginGrupo()">
-          <img src="../../assets/img/group.png" class="associados" />
-          <ion-card-title text-center>
-            Grupo de Associados
-          </ion-card-title>
-        </ion-card>
+      <ion-col class="tipo-img">
+        <img src="assets/img/advogado.png" class="advogado" (click)="gotoLoginAdvogado()" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="tipo-img">
+        <img src="assets/img/group.png" class="associados" (click)="gotoLoginGrupo()" />
       </ion-col>
     </ion-row>
   </ion-grid>

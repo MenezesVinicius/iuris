@@ -1,17 +1,14 @@
 <ion-header>
   <ion-navbar class="force-back-button">
-    <ion-title>Lista</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
-<ion-content padding>
-  <ion-list>
-    <ion-item-sliding *ngFor="let associado of associadosPesquisa" (click)="selecionadoAss(associado)">
-      <ion-item>
-        {{ associado.nome }}
-      </ion-item>
-    </ion-item-sliding>
-  </ion-list>
+<ion-content class="padding">
+  <ion-card class="card responsive-card" *ngFor="let associado of associadosPesquisa" (click)="selecionaAss(associado)">
+    <img src="http://placehold.it/300x300" />
+    <ion-card-content>
+      {{ associado.nome }}
+    </ion-card-content>
+  </ion-card>
 </ion-content>

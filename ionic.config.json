@@ -2,5 +2,7 @@
   "name": "IonicPHP",
   "app_id": "79e18525",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }

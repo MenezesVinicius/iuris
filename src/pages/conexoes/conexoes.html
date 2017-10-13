@@ -9,19 +9,13 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
+<ion-content padding>
+  <ion-item-group *ngFor="let associado of associados" (click)="selecionaAss(associado)">
+    <ion-item-divider color="primary">
+      {{ associado.nome }}
+    </ion-item-divider>
     <ion-item>
-      <ion-card *ngFor="let associado of associados" (click)="selecionaAss(associado)">
-        <ion-card-header class="card-header">
-          {{ associado.nome }}
-        </ion-card-header>
-        <ion-card-content padding class="card-content">
-          <ion-row>
-            Áreas: {{ associado.areas }}
-          </ion-row>
-        </ion-card-content>
-      </ion-card>
+      Áreas: {{ associado.areas }}
     </ion-item>
-  </ion-list>
+  </ion-item-group>
 </ion-content>

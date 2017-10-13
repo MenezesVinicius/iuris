@@ -9,22 +9,16 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
+<ion-content padding>
+  <ion-item-group *ngFor="let advogado of advogados" (click)="selecionaAdv(advogado)">
+    <ion-item-divider color="primary">
+      {{ advogado.nome }}
+    </ion-item-divider>
     <ion-item>
-      <ion-card *ngFor="let advogado of advogados" (click)="selecionaAdv(advogado)">
-        <ion-card-header class="card-header">
-          {{ advogado.nome }}
-        </ion-card-header>
-        <ion-card-content padding class="card-content">
-          <ion-row>
-            Nível: {{ advogado.nivel }}
-          </ion-row>
-          <ion-row>
-            Formação: {{ advogado.formacao }}
-          </ion-row>
-        </ion-card-content>
-      </ion-card>
+      Nível: {{ advogado.nivel }}
     </ion-item>
-  </ion-list>
+    <ion-item>
+      Formação: {{ advogado.formacao }}
+    </ion-item>
+  </ion-item-group>
 </ion-content>

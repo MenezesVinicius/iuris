@@ -120,7 +120,7 @@ export class ResultadoAdvPage {
       });
   }
 
-  selecionadoAdv(advogado: Advogado){
+  selecionaAdv(advogado: Advogado){
     this.app.getRootNav().push(SelecionadoAdvPage, { advSelecionado: advogado });    
   }
 }

@@ -37,8 +37,9 @@ $colors: (
   primary:    #32db64,
   secondary:  #488aff,
   danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  light:      #FFFFFF,
+  dark:       #222,
+  gray:    #6F6F6F
 );
 
 
@@ -86,3 +87,7 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+$toolbar-ios-background: white;
+$toolbar-md-background: white;
+$toolbar-wp-background: white;

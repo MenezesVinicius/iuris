@@ -23,11 +23,16 @@
         </ion-item>
 
         <ion-item>
+            <ion-label stacked>Telefone</ion-label>
+            <ion-input [(ngModel)]="advogado.telefone" name="telefone" type="phone"></ion-input>
+        </ion-item>
+
+        <ion-item>
             <ion-label stacked>Nível</ion-label>
             <ion-select [(ngModel)]="advogado.nivel">
-                <ion-option value="junior">Júnior</ion-option>
-                <ion-option value="pleno">Pleno</ion-option>
-                <ion-option value="senior">Sênior</ion-option>
+                <ion-option value="Júnior">Júnior</ion-option>
+                <ion-option value="Pleno">Pleno</ion-option>
+                <ion-option value="Sênior">Sênior</ion-option>
             </ion-select>
         </ion-item>
 
@@ -37,6 +42,23 @@
         </ion-item>
 
         <ion-item>
+            <ion-label stacked>Área de atuação</ion-label>
+            <ion-select [(ngModel)]="advogado.area">
+                <ion-option value="Trânsito">Trânsito</ion-option>
+                <ion-option value="Trabalhista">Trabalhista</ion-option>
+                <ion-option value="Consumidor">Consumidor</ion-option>
+                <ion-option value="Família">Família</ion-option>
+                <ion-option value="Penal">Penal</ion-option>
+                <ion-option value="Contratos">Contratos</ion-option>
+                <ion-option value="Empresarial">Empresarial</ion-option>
+                <ion-option value="Ambiental">Ambiental</ion-option>
+                <ion-option value="Tributário">Tributário</ion-option>
+                <ion-option value="Administrativo">Administrativo</ion-option>
+                <ion-option value="Outro">Outro</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <!-- <ion-item>
             <ion-label stacked>Rua</ion-label>
             <ion-input [(ngModel)]="advogado.rua" name="endereco" type="text"></ion-input>
         </ion-item>
@@ -49,6 +71,24 @@
         <ion-item>
             <ion-label stacked>Bairro</ion-label>
             <ion-input [(ngModel)]="advogado.bairro" name="bairro" type="text"></ion-input>
+        </ion-item> -->
+
+        <ion-item>
+            <ion-label stacked>Idiomas</ion-label>
+        </ion-item>
+        <ion-item *ngFor="let idioma of idiomas">
+            <ion-label> {{idioma.idioma}}</ion-label>
+            <ion-checkbox checked="false" [(ngModel)]="idioma.checked"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Formação</ion-label>
+            <ion-input [(ngModel)]="advogado.formacao" name="formacao" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Sobre</ion-label>
+            <ion-input [(ngModel)]="advogado.sobre" name="sobre" type="text"></ion-input>
         </ion-item>
 
     </ion-list>

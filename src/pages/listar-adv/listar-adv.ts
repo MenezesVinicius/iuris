@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { Advogado } from '../../providers/advogado/adv';
 import { AdvogadoProvider } from '../../providers/advogado/advogado';
 import { ProcurarAdvPage } from '../procurar-adv/procurar-adv';
@@ -15,7 +15,9 @@ export class ListarAdvPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    public menuCtrl: MenuController,
     private advProvider: AdvogadoProvider) {
+      this.menuCtrl.enable(true, 'menu');
       this.advProvider.getAdvogados()
       .then(dados => {
         console.log(dados);

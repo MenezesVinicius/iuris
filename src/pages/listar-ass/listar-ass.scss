@@ -1,10 +1,38 @@
 page-listar-ass {
-    .card-header{
-        background-color:#32db64;
-        color: white;
+    ion-label{
+        white-space: normal !important;
     }
 
-    .card-content{
-        white-space: normal;
+    ion-item-group{
+        border: solid 1px #32db64;
+        margin-bottom: 10px;
+    }
+
+    ion-item-divider{
+        font-size: 18px !important;
+    }
+
+    ion-card-content{
+        text-align: center;
+        color: #1fc174;
+    }
+
+    .item-inner{
+        border-bottom: none !important;
+    }
+
+    .responsive-card {
+        // width: 48%;
+        // float: left;
+        // margin: 1%;
+        display: inline-block;
+        margin: 1% 1% 0 1%;
+        width: 48%;
+        border-radius: 10px;
+        box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.64) !important;        
+    }
+
+    .scroll-content{
+        padding: 5px !important;
     }
 }

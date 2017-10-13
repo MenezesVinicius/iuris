@@ -9,18 +9,27 @@ import { ListarAssPage } from '../listar-ass/listar-ass';
   templateUrl: 'perfiladvogado.html',
 })
 export class PerfiladvogadoPage {
-  
+
   public advogado: Advogado;
-  
+  public idiomas = [
+    { idioma: 'Inglês', checked: false },
+    { idioma: 'Espanhol', checked: false },
+    { idioma: 'Italiano', checked: false },
+    { idioma: 'Francês', checked: false },
+    { idioma: 'Alemão', checked: false }
+  ];
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private advProvider: AdvogadoProvider){
-      this.advogado = this.advProvider.advogadoLogado;
-      console.log(this.advogado);
+    private advProvider: AdvogadoProvider) {
+    this.advogado = this.advProvider.advogadoLogado;
+    console.log(this.advogado);
   }
 
   efetuaAlteracao() {
+    let idiomasSelecionados = this.idiomas.filter(idioma => idioma.checked == true);
+    this.advogado.idiomas = idiomasSelecionados.map(function (obj) { return obj.idioma; }).join(', '); // returns the expected output.
     this.navCtrl.setRoot(ListarAssPage);
   }
 }

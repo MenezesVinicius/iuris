@@ -35,7 +35,8 @@ export class ResultadoAssPage {
     this.assProvider.getAssociados()
       .then(dados => {
         this.associados = dados;
-
+        console.log(dados); 
+        console.log(this.dadosPesquisa);         
         if (this.dadosPesquisa.empresa != undefined) {
           this.associadosPesquisa = this.associados.filter(ass => ass.nome.toLowerCase().indexOf(this.dadosPesquisa.empresa.toLowerCase()) > -1);
         }
@@ -102,7 +103,7 @@ export class ResultadoAssPage {
       });
   }
 
-  selecionadoAss(associado: Associados) {
+  selecionaAss(associado: Associados) {
     this.app.getRootNav().push(SelecionadoAssPage, { assSelecionado: associado });
   }
 }

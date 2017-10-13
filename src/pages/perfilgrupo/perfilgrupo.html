@@ -33,8 +33,20 @@
         </ion-item>
 
         <ion-item>
-            <ion-label stacked>Áreas</ion-label>
-            <ion-input [(ngModel)]="grupo.areas" name="areas" type="text"></ion-input>
+            <ion-label stacked>Número de pessoas na equipe:</ion-label>
+            <ion-range min="0" max="20" pin="true" step="1" [(ngModel)]="grupo.numEquipe">
+                <ion-label range-left>0</ion-label>
+                <ion-label range-right>20</ion-label>
+            </ion-range>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Áreas de atuação</ion-label>
+        </ion-item>
+
+        <ion-item *ngFor="let area of areas">
+            <ion-label> {{area.area}}</ion-label>
+            <ion-checkbox checked="false" [(ngModel)]="area.checked"></ion-checkbox>
         </ion-item>
 
         <ion-item>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { Associados } from '../../providers/associados/grupo';
 import { AssociadosProvider } from '../../providers/associados/associados';
 import { ProcurarAssPage } from '../procurar-ass/procurar-ass';
@@ -15,7 +15,9 @@ export class ListarAssPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    public menuCtrl: MenuController,
     private assProvider: AssociadosProvider) {
+    this.menuCtrl.enable(true, 'menu');
     this.assProvider.getAssociados()
       .then(dados => {
         console.log(dados);
@@ -27,7 +29,7 @@ export class ListarAssPage {
     this.navCtrl.push(ProcurarAssPage);
   }
 
-  selecionaAss(associado: Associados){
+  selecionaAss(associado: Associados) {
     console.log(associado);
     this.navCtrl.push(SelecionadoAssPage, { assSelecionado: associado });
   }
