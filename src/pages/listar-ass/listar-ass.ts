@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, Loading, LoadingController } from 'ionic-angular';
 import { Associados } from '../../providers/associados/grupo';
 import { AssociadosProvider } from '../../providers/associados/associados';
 import { ProcurarAssPage } from '../procurar-ass/procurar-ass';
@@ -11,18 +11,21 @@ import { SelecionadoAssPage } from '../selecionado-ass/selecionado-ass';
 })
 export class ListarAssPage {
   public associados: Associados[];
+  public loading: Loading;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public menuCtrl: MenuController,
+    public loadingCtrl: LoadingController,
     private assProvider: AssociadosProvider) {
     this.menuCtrl.enable(true, 'menu');
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
     this.assProvider.getAssociados()
       .then(dados => {
-        console.log(dados);
-        this.associados = dados;
-      });
+        this.loading.dismiss().then(() => this.associados = dados);
+      }, err => this.loading.dismiss());
   }
 
   gotoSearch() {

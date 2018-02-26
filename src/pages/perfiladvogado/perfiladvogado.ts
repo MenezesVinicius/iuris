@@ -24,7 +24,11 @@ export class PerfiladvogadoPage {
     public navParams: NavParams,
     private advProvider: AdvogadoProvider) {
     this.advogado = this.advProvider.advogadoLogado;
-    console.log(this.advogado);
+    this.idiomas.forEach(idioma => {
+      if(this.advogado.idiomas.indexOf(idioma.idioma) > -1){
+        idioma.checked = true;
+      }
+    });
   }
 
   efetuaAlteracao() {

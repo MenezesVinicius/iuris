@@ -29,7 +29,11 @@ export class PerfilgrupoPage {
     public navParams: NavParams,
     private assProvider: AssociadosProvider) {
       this.grupo = this.assProvider.grupoLogado;
-      console.log(this.grupo);
+      this.areas.forEach(area => {
+        if(this.grupo.areas.indexOf(area.area) > -1){
+          area.checked = true;
+        }
+      });
   }
 
   efetuaAlteracao() {

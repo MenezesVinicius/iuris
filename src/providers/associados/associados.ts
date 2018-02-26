@@ -6,8 +6,7 @@ import { Associados } from './grupo';
 @Injectable()
 export class AssociadosProvider {
   data: any = {};
-  public grupoLogado: Associados;
-
+  grupoLogado: Associados;
 
   constructor(public http: Http) {
     this.data.response = '';
@@ -30,7 +29,7 @@ export class AssociadosProvider {
         this.grupoLogado = JSON.parse(this.data.response);
         return this.data.response;
       }, error => {
-        console.log("Oooops!");
+        return this.data.response = '[]';
       });
   }
 
@@ -50,7 +49,7 @@ export class AssociadosProvider {
         this.grupoLogado = JSON.parse(this.data.response);
         return this.data.response;
       }, error => {
-        console.log("Oooops!");
+        return this.data.response = '[]';
       });
   }
 
@@ -76,7 +75,7 @@ export class AssociadosProvider {
         console.log(response);
         return response;
       }, error => {
-        console.log("Oooops!");
+        return this.data.response = '[]';
       });
   }
 

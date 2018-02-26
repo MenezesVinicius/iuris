@@ -6,7 +6,7 @@ import { Advogado } from './adv';
 @Injectable()
 export class AdvogadoProvider {
   data: any = {};
-  public advogadoLogado: Advogado;
+  advogadoLogado: Advogado;
 
   constructor(public http: Http) {
     this.data.response = '';
@@ -22,14 +22,14 @@ export class AdvogadoProvider {
     console.log(data);
 
     return this.http.post(link, data, options)
-    .toPromise()
-    .then(data => {
+      .toPromise()
+      .then(data => {
         this.data.response = data["_body"];
         console.log(this.data.response);
         this.advogadoLogado = JSON.parse(this.data.response);
         return this.data.response;
       }, error => {
-        console.log("Oooops!");
+        return this.data.response = '[]';
       });
   }
 
@@ -47,7 +47,7 @@ export class AdvogadoProvider {
         this.advogadoLogado = JSON.parse(this.data.response);
         return this.data.response;
       }, error => {
-        console.log("Oooops!");
+        return this.data.response = '[]';
       });
   }
 
@@ -73,7 +73,7 @@ export class AdvogadoProvider {
         console.log(response);
         return response;
       }, error => {
-        console.log("Oooops!");
+        return this.data.response = '[]';
       });
   }
 

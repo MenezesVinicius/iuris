@@ -21,7 +21,7 @@ export class LogingrupoPage {
     private assProvider: AssociadosProvider,
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController) {
-      
+
     this.grupo = new Associados();
     this.grupo.email = 'vicmen33@hotmail.com';
     this.grupo.senha = '36425652';
@@ -31,13 +31,17 @@ export class LogingrupoPage {
     this.showLoading();
     this.assProvider.logarGrupo(this.grupo)
       .then(data => {
+        this.loading.dismiss();
         if (data == '[]') {
-          this.showError();
+          this.showError("Falha ao logar");
         }
         else {
           this.events.publish('tipoLogado', 'grupo');
           this.navCtrl.setRoot(ListarAdvPage);
         }
+      }, err => {
+        this.loading.dismiss();        
+        this.showError("Falha ao logar");
       });
   }
 
@@ -45,19 +49,17 @@ export class LogingrupoPage {
     this.navCtrl.push(CadastrogrupoPage);
   }
 
-  showError() {
-    this.loading.dismiss();
+  showError(msg) {
     this.alertCtrl.create({
       title: 'Login',
-      subTitle: 'Falha ao logar, favor verificar credenciais.',
+      subTitle: msg,
       buttons: [{ text: 'OK' }]
     }).present();
   }
 
   showLoading() {
     this.loading = this.loadingCtrl.create({
-      content: 'Autenticando...',
-      dismissOnPageChange: true
+      content: 'Autenticando...'
     });
     this.loading.present();
   }

@@ -31,13 +31,17 @@ export class LoginPage {
     this.showLoading();
     this.advProvider.logarAdvogado(this.advogado)
       .then(data => {
+        this.loading.dismiss();
         if (data == '[]') {
-          this.showError();
+          this.showError("Falha ao logar");
         }
         else {
           this.events.publish('tipoLogado', 'advogado');
           this.navCtrl.setRoot(ListarAssPage);
         }
+      }, err => {
+        this.loading.dismiss();        
+        this.showError("Falha ao logar");
       });
   }
 
@@ -45,19 +49,17 @@ export class LoginPage {
     this.navCtrl.push(CadastroPage);
   }
 
-  showError() {
-    this.loading.dismiss();
+  showError(msg) {
     this.alertCtrl.create({
       title: 'Login',
-      subTitle: 'Falha ao logar, favor verificar credenciais.',
+      subTitle: msg,
       buttons: [{ text: 'OK' }]
     }).present();
   }
 
   showLoading() {
     this.loading = this.loadingCtrl.create({
-      content: 'Autenticando...',
-      dismissOnPageChange: true
+      content: 'Autenticando...'
     });
     this.loading.present();
   }

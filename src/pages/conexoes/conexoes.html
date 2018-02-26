@@ -3,19 +3,14 @@
     <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
           </button>
-    <ion-title>
-      Conexões
-    </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-item-group *ngFor="let associado of associados" (click)="selecionaAss(associado)">
-    <ion-item-divider color="primary">
+<ion-content class="padding">
+  <ion-card class="card responsive-card" *ngFor="let associado of associados" (click)="selecionaAss(associado)">
+    <img src="assets/img/img-user.png" />
+    <ion-card-content>
       {{ associado.nome }}
-    </ion-item-divider>
-    <ion-item>
-      Áreas: {{ associado.areas }}
-    </ion-item>
-  </ion-item-group>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -8,6 +8,8 @@ export class Advogado {
         public oab: string = '',
         public area: string = '',
         public telefone: string = '',
+        public cidade: string = '',
+        public estado: string = '',
         public rua: string = '',
         public numero: string = '',
         public bairro: string = '',

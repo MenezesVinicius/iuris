@@ -14,7 +14,6 @@ page-selecionado-adv {
     }
 
     ion-card{
-        border: solid 1px white;
         margin: 1% !important;
         width: 98% !important;
         border-radius: 10px !important;
@@ -28,7 +27,7 @@ page-selecionado-adv {
     }
 
     .button-match ion-icon{
-       font-size: 80px !important;
+       font-size: 60px !important;
     }
 
     .button-match{
@@ -61,6 +60,5 @@ page-selecionado-adv {
         max-height: 200px;
         max-width: 200px;
         border-radius: 100%;
-        border: solid 1px white;
     }
 }

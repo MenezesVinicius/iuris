@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController, Loading } from 'ionic-angular';
 import { Associados } from '../../providers/associados/grupo';
 import { AssociadosProvider } from '../../providers/associados/associados';
 import { Advogado } from '../../providers/advogado/adv';
 import { AdvogadoProvider } from '../../providers/advogado/advogado';
+import { ChatAssPage } from '../chat-ass/chat-ass';
 
 @Component({
   selector: 'page-selecionado-ass',
@@ -13,10 +14,12 @@ export class SelecionadoAssPage {
   associado: Associados;
   advogado: Advogado;
   fromConexoes: number = 0;
+  loading: Loading;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    private loadingCtrl: LoadingController,
     private assProvider: AssociadosProvider,
     private advProvider: AdvogadoProvider,
     private alertCtrl: AlertController) {
@@ -27,13 +30,20 @@ export class SelecionadoAssPage {
     this.advogado = this.advProvider.getAdvogadoLogado();
   }
 
-  semInteresseAss(){
+  showLoading() {
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
+  }
+
+  semInteresseAss() {
     this.navCtrl.pop();
   }
 
   interesseAss() {
+    this.showLoading();
     this.advProvider.setInteresse(this.advogado.id, this.associado.id)
       .then(dados => {
+        this.loading.dismiss();
         if (dados == 1) {
           this.alertCtrl.create({
             title: 'Conexão',
@@ -55,6 +65,14 @@ export class SelecionadoAssPage {
             buttons: [{ text: 'OK' }]
           }).present();
         }
-      });
+      }, err => this.loading.dismiss());
+  }
+
+  deletarInteresse() {
+
+  }
+
+  comecarChat() {
+    this.navCtrl.setRoot(ChatAssPage, { assSelecionado: this.associado, fromConexoes: 1 })
   }
 }

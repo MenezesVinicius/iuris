@@ -32,6 +32,10 @@ import { ResultadoAdvPage } from '../pages/resultado-adv/resultado-adv';
 import { AreaAdvPage } from '../pages/area-adv/area-adv';
 import { TabsAssociadosPage } from '../pages/tabs-associados/tabs-associados';
 import { ConexoesAssPage } from '../pages/conexoes-ass/conexoes-ass';
+import { ChatAssPage } from '../pages/chat-ass/chat-ass';
+import { ChatAdvPage } from '../pages/chat-adv/chat-adv';
+import { TinderAssPage } from '../pages/tinder-ass/tinder-ass';
+import { TinderAdvPage } from '../pages/tinder-adv/tinder-adv';
 
 @NgModule({
   declarations: [
@@ -56,7 +60,11 @@ import { ConexoesAssPage } from '../pages/conexoes-ass/conexoes-ass';
     TabsAssociadosPage,
     AreaAdvPage,
     ResultadoAdvPage,
-    ConexoesAssPage
+    ConexoesAssPage,
+    ChatAssPage,
+    ChatAdvPage,
+    TinderAssPage,
+    TinderAdvPage
   ],
   imports: [
     BrowserModule,
@@ -86,7 +94,11 @@ import { ConexoesAssPage } from '../pages/conexoes-ass/conexoes-ass';
     TabsAssociadosPage,
     AreaAdvPage,
     ResultadoAdvPage,
-    ConexoesAssPage
+    ConexoesAssPage,
+    ChatAssPage,
+    ChatAdvPage,
+    TinderAssPage,
+    TinderAdvPage
   ],
   providers: [
     StatusBar,

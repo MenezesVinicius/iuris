@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Navbar, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Navbar, App, Loading, LoadingController } from 'ionic-angular';
 import { Associados } from '../../providers/associados/grupo';
 import { AdvogadoProvider } from '../../providers/advogado/advogado';
 import { AssociadosProvider } from '../../providers/associados/associados';
@@ -16,14 +16,21 @@ export class ResultadoAssPage {
   dadosPesquisa: any;
   associados: Associados[];
   associadosPesquisa: Associados[];
+  loading: Loading;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    private loadingCtrl: LoadingController,
     private assProvider: AssociadosProvider,
     private gpsProvider: GpsProvider,
     private app: App) {
     this.dadosPesquisa = navParams.data;
+  }
+
+  showLoading() {
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
   }
 
   ionViewDidLoad() {
@@ -32,11 +39,13 @@ export class ResultadoAssPage {
       this.navCtrl.parent.viewCtrl.dismiss();
     };
 
+    this.showLoading();
+
     this.assProvider.getAssociados()
       .then(dados => {
         this.associados = dados;
-        console.log(dados); 
-        console.log(this.dadosPesquisa);         
+        console.log(dados);
+        console.log(this.dadosPesquisa);
         if (this.dadosPesquisa.empresa != undefined) {
           this.associadosPesquisa = this.associados.filter(ass => ass.nome.toLowerCase().indexOf(this.dadosPesquisa.empresa.toLowerCase()) > -1);
         }
@@ -64,16 +73,19 @@ export class ResultadoAssPage {
             let distancia = this.dadosPesquisa.distancia * 1000;
             let result = [];
             this.associadosPesquisa.forEach(ass => {
-              let endereco = ass.rua + ',' + ass.numero + ',' + ass.bairro;
-              // deveria pegar o endereco do advogado
-              this.gpsProvider.getDistance('', endereco)
-                .then(dist => {
-                  if (dist < distancia) {
-                    console.log(this.associadosPesquisa);
-                    result.push(ass);
-                  }
-                })
+              if (ass.rua != null && ass.numero != null) {
+                let endereco = ass.rua + ',' + ass.numero + ',' + ass.bairro;
+                // deveria pegar o endereco do advogado
+                this.gpsProvider.getDistance('', endereco)
+                  .then(dist => {
+                    if (dist < distancia) {
+                      console.log(this.associadosPesquisa);
+                      result.push(ass);
+                    }
+                  })
+              }
             });
+
             this.associadosPesquisa = result;
             console.log(this.associadosPesquisa);
           }
@@ -81,15 +93,17 @@ export class ResultadoAssPage {
             let distancia = this.dadosPesquisa.distancia * 1000;
             let result = [];
             this.associados.forEach(ass => {
-              let endereco = ass.rua + ',' + ass.numero + ',' + ass.bairro;
-              // deveria pegar o endereco do advogado
-              this.gpsProvider.getDistance('', endereco)
-                .then(dist => {
-                  if (dist < distancia) {
-                    console.log(this.associadosPesquisa);
-                    result.push(ass);
-                  }
-                })
+              if (ass.rua != null && ass.numero != null) {
+                let endereco = ass.rua + ',' + ass.numero + ',' + ass.bairro;
+                // deveria pegar o endereco do advogado
+                this.gpsProvider.getDistance('', endereco)
+                  .then(dist => {
+                    if (dist < distancia) {
+                      console.log(this.associadosPesquisa);
+                      result.push(ass);
+                    }
+                  })
+              }
             });
             this.associadosPesquisa = result;
             console.log(this.associadosPesquisa);
@@ -100,7 +114,8 @@ export class ResultadoAssPage {
         if (this.associadosPesquisa == undefined) {
           this.associadosPesquisa = this.associados;
         }
-      });
+        this.loading.dismiss();
+      }, err => this.loading.dismiss());
   }
 
   selecionaAss(associado: Associados) {

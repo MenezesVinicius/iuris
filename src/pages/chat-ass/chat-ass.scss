@@ -1,0 +1,52 @@
+page-chat-ass {
+        .chat-content {    
+            .chat{
+                padding-bottom: 70px;                
+            }     
+            
+            .chat-box {
+              background: rgba(57, 159, 139, 0.5) !important;
+            }
+         
+             ion-item {
+                 font-size: 0.9em;
+                //  margin-bottom: 10px;
+                 box-shadow: none !important;
+                 background-color: transparent !important;
+                 color: white !important;
+             }
+              
+             .item-inner {
+               border: 0 !important;
+               box-shadow: none !important;
+             }
+
+             .chat-user{
+                //  background-color: gray !important;
+             }
+    
+             .user{
+                 text-align: right;
+                 margin: 0 !important;
+             }
+
+             .other{
+                 text-align: left;
+                 margin: 0 !important;
+             }
+
+             .avatar-left{
+                 margin-right: 8px !important;
+             }
+
+             ion-list{
+               margin-bottom: 0;
+             }
+         
+             button{
+               margin-top: 0;
+               margin-bottom: 10px;
+            }
+        }
+    
+}

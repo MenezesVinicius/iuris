@@ -14,14 +14,14 @@ export class GpsProvider {
   }
 
   getDistance(Origem, Destino) {
-    Origem = "-27.602888, -48.526751";
+    Origem = "-27.548256, -48.498130";
     let url = this.link + Origem + '&destinations=' + Destino;
     return this.http
       .get(url)
       .map(res => res.json())
       .toPromise()
       .then(dados => {
-        console.log(dados.rows[0].elements[0].distance.value);
+        console.log(dados);
         return dados.rows[0].elements[0].distance.value;
       })
   }

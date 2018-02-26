@@ -1,0 +1,63 @@
+page-tinder-ass {
+    ion-label{
+        white-space: normal !important;
+    }
+
+    ion-item-group{
+        border-radius: 10px !important;
+    }
+
+    ion-item-divider{
+        font-size: 18px !important;
+        background-color: #1fc174 !important;
+        color: white !important;
+    }
+
+    ion-card{
+        border-radius: 10px !important;
+        background:white !important;
+        box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.64) !important;
+    }
+
+    ion-item{
+        color: #1fc174 !important;
+        background-color: transparent !important;
+        border-bottom: #1fc174 solid 1px !important;
+    }
+
+    .button-match ion-icon{
+       font-size: 60px !important;
+    }
+
+    .button-match{
+        height: 80px !important;
+        width: 80px !important;
+        border-radius: 100% !important;
+        box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.64) !important;        
+    }
+
+    .row{
+        text-align: center !important;
+    }
+    
+    .scroll-content{
+        padding: 5px !important;
+    }
+
+    .item-inner{
+        border-bottom: none !important;
+    }
+
+    .center{
+        text-align: center;
+    }
+
+    .avatar{
+        -webkit-box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.64);
+        -moz-box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.64);
+        box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.64);
+        max-height: 200px;
+        max-width: 200px;
+        border-radius: 100%;
+    }
+}

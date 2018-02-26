@@ -3,22 +3,14 @@
     <button ion-button menuToggle>
               <ion-icon name="menu"></ion-icon>
             </button>
-    <ion-title>
-      Conexões
-    </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-item-group *ngFor="let advogado of advogados" (click)="selecionaAdv(advogado)">
-    <ion-item-divider color="primary">
+<ion-content class="padding">
+  <ion-card class="card responsive-card" *ngFor="let advogado of advogados" (click)="selecionaAdv(advogado)">
+    <img src="assets/img/img-user.png" />
+    <ion-card-content>
       {{ advogado.nome }}
-    </ion-item-divider>
-    <ion-item>
-      Nível: {{ advogado.nivel }}
-    </ion-item>
-    <ion-item>
-      Formação: {{ advogado.formacao }}
-    </ion-item>
-  </ion-item-group>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

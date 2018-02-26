@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events, Loading, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, Loading, LoadingController, AlertController, MenuController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AdvogadoProvider } from '../../providers/advogado/advogado';
 import { Advogado } from '../../providers/advogado/adv';
@@ -19,10 +19,11 @@ export class CadastroPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public events: Events,
+    public menuCtrl: MenuController,
     private advProvider: AdvogadoProvider,
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController) {
-
+    this.menuCtrl.enable(true, 'menu');
     this.advogado = new Advogado();
   }
 
@@ -30,6 +31,7 @@ export class CadastroPage {
     this.showLoading();
     this.advProvider.cadastrarAdvogado(this.advogado)
       .then(data => {
+        this.loading.dismiss();
         if (data == '[]') {
           this.showError();
         }
@@ -37,7 +39,7 @@ export class CadastroPage {
           this.events.publish('tipoLogado', 'advogado');
           this.navCtrl.setRoot(ListarAssPage);
         }
-      });
+      }, err => this.loading.dismiss());
   }
 
   gotoLogin() {
@@ -45,7 +47,6 @@ export class CadastroPage {
   }
 
   showError() {
-    this.loading.dismiss();
     this.alertCtrl.create({
       title: 'Cadastro',
       subTitle: 'Falha ao cadastrar, tente novamente.',
@@ -55,8 +56,7 @@ export class CadastroPage {
 
   showLoading() {
     this.loading = this.loadingCtrl.create({
-      content: 'Cadastrando...',
-      dismissOnPageChange: true
+      content: 'Cadastrando...'
     });
     this.loading.present();
   }

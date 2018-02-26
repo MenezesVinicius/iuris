@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Navbar, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Navbar, App, LoadingController, Loading } from 'ionic-angular';
 import { Advogado } from '../../providers/advogado/adv';
 import { AdvogadoProvider } from '../../providers/advogado/advogado';
 import { GpsProvider } from '../../providers/gps/gps';
@@ -14,13 +14,20 @@ export class ResultadoAdvPage {
   dadosPesquisa: any;
   advogados: Advogado[];
   advogadosPesquisa: Advogado[];
+  loading: Loading;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
+    private loadingCtrl: LoadingController,
     private advProvider: AdvogadoProvider,
     private gpsProvider: GpsProvider,
     private app: App) {
     this.dadosPesquisa = navParams.data;
+  }
+
+  showLoading() {
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
   }
 
   ionViewDidLoad() {
@@ -29,11 +36,11 @@ export class ResultadoAdvPage {
       this.navCtrl.parent.viewCtrl.dismiss();
     };
 
+    this.showLoading();
+
     this.advProvider.getAdvogados()
       .then(dados => {
         this.advogados = dados;
-        console.log(dados);
-
         if (this.dadosPesquisa.area != undefined) {
           this.advogadosPesquisa = this.advogados.filter(adv => adv.area != null);
           if (this.advogadosPesquisa != undefined) {
@@ -117,10 +124,12 @@ export class ResultadoAdvPage {
         if (this.advogadosPesquisa == undefined) {
           this.advogadosPesquisa = this.advogados;
         }
-      });
+
+        this.loading.dismiss();
+      }, err => this.loading.dismiss());
   }
 
-  selecionaAdv(advogado: Advogado){
-    this.app.getRootNav().push(SelecionadoAdvPage, { advSelecionado: advogado });    
+  selecionaAdv(advogado: Advogado) {
+    this.app.getRootNav().push(SelecionadoAdvPage, { advSelecionado: advogado });
   }
 }

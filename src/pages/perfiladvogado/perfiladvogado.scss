@@ -1,3 +1,40 @@
 page-perfiladvogado {
+    .perfil-content {
+        background: #56CA96;
+     
+        .perfil-box {
+          background: rgba(57, 159, 139, 0.5);
+          padding: 20px 20px 10px 20px;
+        }
+     
+         ion-item {
+             font-size: 0.9em;
+             margin-bottom: 10px;
+             border: 1px solid #ffffff;
+             border-bottom: 0px !important;
+             box-shadow: none !important;
+         }
+          
+         .item-inner {
+           border-bottom-color: #ffffff !important;
+           box-shadow: none !important;
+         }
 
+         ion-list{
+           margin-bottom: 0;
+         }
+     
+         button{
+           margin-top: 0;
+           margin-bottom: 10px !important;
+         }
+
+        .item-options{
+            margin-bottom: 0 !important;
+        }
+
+        .item-options:last-child{
+           margin-bottom: 10px !important;
+        }
+      }
 }

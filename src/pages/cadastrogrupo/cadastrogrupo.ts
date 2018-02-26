@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events, Loading, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, Loading, LoadingController, AlertController, MenuController } from 'ionic-angular';
 import { LogingrupoPage } from '../logingrupo/logingrupo';
 import { Associados } from '../../providers/associados/grupo';
 import { AssociadosProvider } from '../../providers/associados/associados';
@@ -31,10 +31,11 @@ export class CadastrogrupoPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public events: Events,
+    public menuCtrl: MenuController,
     private assProvider: AssociadosProvider,
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController) {
-
+    this.menuCtrl.enable(true, 'menu');
     this.grupo = new Associados();
   }
 
@@ -44,6 +45,7 @@ export class CadastrogrupoPage {
     this.showLoading();
     this.assProvider.cadastrarGrupo(this.grupo)
       .then(data => {
+        this.loading.dismiss();
         if (data == '[]') {
           this.showError();
         }
@@ -51,7 +53,7 @@ export class CadastrogrupoPage {
           this.events.publish('tipoLogado', 'grupo');
           this.navCtrl.setRoot(ListarAdvPage);
         }
-      });
+      }, err => this.loading.dismiss());
   }
 
   gotoLogin() {
@@ -60,7 +62,6 @@ export class CadastrogrupoPage {
   }
 
   showError() {
-    this.loading.dismiss();
     this.alertCtrl.create({
       title: 'Cadastro',
       subTitle: 'Falha ao cadastrar, tente novamente.',
@@ -70,8 +71,7 @@ export class CadastrogrupoPage {
 
   showLoading() {
     this.loading = this.loadingCtrl.create({
-      content: 'Cadastrando...',
-      dismissOnPageChange: true
+      content: 'Cadastrando...'
     });
     this.loading.present();
   }

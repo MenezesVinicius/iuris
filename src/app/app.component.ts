@@ -9,6 +9,10 @@ import { ConexoesPage } from '../pages/conexoes/conexoes';
 import { ListarAssPage } from '../pages/listar-ass/listar-ass';
 import { ListarAdvPage } from '../pages/listar-adv/listar-adv';
 import { ConexoesAssPage } from '../pages/conexoes-ass/conexoes-ass';
+import { ProcurarAssPage } from '../pages/procurar-ass/procurar-ass';
+import { ProcurarAdvPage } from '../pages/procurar-adv/procurar-adv';
+import { TinderAssPage } from '../pages/tinder-ass/tinder-ass';
+import { TinderAdvPage } from '../pages/tinder-adv/tinder-adv';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,12 +30,16 @@ export class MyApp {
         this.paginas = [];
         this.paginas.push({ titulo: 'Perfil', componente: PerfilgrupoPage });
         this.paginas.push({ titulo: 'Lista de Advogados', componente: ListarAdvPage }); 
+        this.paginas.push({ titulo: 'Modo #descubra', componente: TinderAdvPage });         
+        this.paginas.push({ titulo: 'Pesquisar', componente: ProcurarAdvPage }); 
         this.paginas.push({ titulo: 'Conexões', componente: ConexoesAssPage }); 
       }
       else if(tipo == 'advogado'){
         this.paginas = [];
         this.paginas.push({ titulo: 'Perfil', componente: PerfiladvogadoPage });
         this.paginas.push({ titulo: 'Lista de Associados', componente: ListarAssPage });   
+        this.paginas.push({ titulo: 'Modo #descubra', componente: TinderAssPage });                 
+        this.paginas.push({ titulo: 'Pesquisar', componente: ProcurarAssPage }); 
         this.paginas.push({ titulo: 'Conexões', componente: ConexoesPage });         
       }
    })

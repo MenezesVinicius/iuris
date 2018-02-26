@@ -3,73 +3,81 @@
         <button ion-button menuToggle>
                     <ion-icon name="menu"></ion-icon>
                   </button>
-        <ion-title>
-            Perfil
-        </ion-title>
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="perfil-content" padding>
+    <div class="perfil-box">
+        <ion-list>
+            <ion-item>
+                <ion-label stacked>Empresa</ion-label>
+                <ion-input [(ngModel)]="grupo.nome" name="nome" type="text"></ion-input>
+            </ion-item>
 
-    <ion-list>
-        <ion-item>
-            <ion-label stacked>Empresa</ion-label>
-            <ion-input [(ngModel)]="grupo.nome" name="nome" type="text"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label stacked>Email</ion-label>
+                <ion-input [(ngModel)]="grupo.email" name="email" type="email"></ion-input>
+            </ion-item>
 
-        <ion-item>
-            <ion-label stacked>Email</ion-label>
-            <ion-input [(ngModel)]="grupo.email" name="email" type="email"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label stacked>Site</ion-label>
+                <ion-input [(ngModel)]="grupo.site" name="site" type="text"></ion-input>
+            </ion-item>
 
-        <ion-item>
-            <ion-label stacked>Site</ion-label>
-            <ion-input [(ngModel)]="grupo.site" name="site" type="text"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label stacked>Telefone</ion-label>
+                <ion-input [(ngModel)]="grupo.telefone" name="telefone" type="phone"></ion-input>
+            </ion-item>
 
-        <ion-item>
-            <ion-label stacked>Telefone</ion-label>
-            <ion-input [(ngModel)]="grupo.telefone" name="telefone" type="phone"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label stacked>Número de pessoas na equipe:</ion-label>
+                <ion-range min="0" max="20" pin="true" step="1" [(ngModel)]="grupo.numEquipe">
+                    <ion-label range-left>0</ion-label>
+                    <ion-label range-right>20</ion-label>
+                </ion-range>
+            </ion-item>
 
-        <ion-item>
-            <ion-label stacked>Número de pessoas na equipe:</ion-label>
-            <ion-range min="0" max="20" pin="true" step="1" [(ngModel)]="grupo.numEquipe">
-                <ion-label range-left>0</ion-label>
-                <ion-label range-right>20</ion-label>
-            </ion-range>
-        </ion-item>
+            <ion-item class="item-options">
+                <ion-label stacked>Áreas de atuação</ion-label>
+            </ion-item>
 
-        <ion-item>
-            <ion-label stacked>Áreas de atuação</ion-label>
-        </ion-item>
+            <ion-item *ngFor="let area of areas" class="item-options">
+                <ion-label> {{area.area}}</ion-label>
+                <ion-checkbox checked="false" [(ngModel)]="area.checked"></ion-checkbox>
+            </ion-item>
 
-        <ion-item *ngFor="let area of areas">
-            <ion-label> {{area.area}}</ion-label>
-            <ion-checkbox checked="false" [(ngModel)]="area.checked"></ion-checkbox>
-        </ion-item>
+            <ion-item style="margin-top: 10px;">
+                <ion-label stacked>Rua</ion-label>
+                <ion-input [(ngModel)]="grupo.rua" name="endereco" type="text"></ion-input>
+            </ion-item>
 
-        <ion-item>
-            <ion-label stacked>Rua</ion-label>
-            <ion-input [(ngModel)]="grupo.rua" name="endereco" type="text"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label stacked>Número</ion-label>
+                <ion-input [(ngModel)]="grupo.numero" name="numero" type="number"></ion-input>
+            </ion-item>
 
-        <ion-item>
-            <ion-label stacked>Número</ion-label>
-            <ion-input [(ngModel)]="grupo.numero" name="numero" type="number"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label stacked>Bairro</ion-label>
+                <ion-input [(ngModel)]="grupo.bairro" name="bairro" type="text"></ion-input>
+            </ion-item>
 
-        <ion-item>
-            <ion-label stacked>Bairro</ion-label>
-            <ion-input [(ngModel)]="grupo.bairro" name="bairro" type="text"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label stacked>Estado</ion-label>
+                <ion-input [(ngModel)]="grupo.estado" name="estado" type="text"></ion-input>
+            </ion-item>
 
-        <ion-item>
-            <ion-label stacked>Sobre</ion-label>
-            <ion-input [(ngModel)]="grupo.sobre" name="sobre" type="text"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label stacked>Cidade</ion-label>
+                <ion-input [(ngModel)]="grupo.cidade" name="cidade" type="text"></ion-input>
+            </ion-item>
 
-    </ion-list>
+            <ion-item>
+                <ion-label stacked>Sobre</ion-label>
+                <ion-input [(ngModel)]="grupo.sobre" name="sobre" type="text"></ion-input>
+            </ion-item>
 
-    <button ion-button block (click)="efetuaAlteracao()">Confirmar</button>
+        </ion-list>
+
+        <button ion-button block (click)="efetuaAlteracao()">Confirmar</button>
+    </div>
 </ion-content>
